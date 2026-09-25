@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.parcial.parcial.controller.ClienteController"
+            prefWidth="700" prefHeight="500">
+    <top>
+        <Label text="Registro de Clientes" style="-fx-font-size: 20px; -fx-font-weight: bold;">
+            <BorderPane.margin><Insets top="10" left="10" bottom="10"/></BorderPane.margin>
+        </Label>
+    </top>
+    <left>
+        <VBox spacing="10" prefWidth="250">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label text="Documento:"/>
+            <TextField fx:id="txtDocumento"/>
+            <Label text="Nombre completo:"/>
+            <TextField fx:id="txtNombre"/>
+            <Label text="Teléfono:"/>
+            <TextField fx:id="txtTelefono"/>
+            <Label text="Correo:"/>
+            <TextField fx:id="txtCorreo"/>
+            <Label text="Edad:"/>
+            <TextField fx:id="txtEdad"/>
+            <Label text="Fecha de registro:"/>
+            <DatePicker fx:id="dpFechaRegistro"/>
+            <Button text="Registrar" onAction="#registrarCliente" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            <Label fx:id="lblMensaje" wrapText="true" style="-fx-text-fill: red;"/>
+        </VBox>
+    </left>
+    <center>
+        <TableView fx:id="tablaClientes">
+            <columns>
+                <TableColumn fx:id="colDocumento" text="Documento" prefWidth="100"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
+                <TableColumn fx:id="colTelefono" text="Teléfono" prefWidth="100"/>
+                <TableColumn fx:id="colCorreo" text="Correo" prefWidth="150"/>
+                <TableColumn fx:id="colEdad" text="Edad" prefWidth="60"/>
+            </columns>
+            <BorderPane.margin><Insets top="10" right="10" bottom="10"/></BorderPane.margin>
+        </TableView>
+    </center>
+</BorderPane>
