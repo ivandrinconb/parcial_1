@@ -81,12 +81,27 @@ public class SistemaController {
         return suma == numero;
     }
 
-    public boolean validarTelefonoPerfecto(Cliente cliente) {
+    // Buscar un cliente registrado por su número de teléfono
+    public Cliente buscarClientePorTelefono(String telefono) {
+        for (Cliente c : clientes) {
+            if (c.getTelefono().equals(telefono)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    // Busca el cliente por teléfono y válida si ese número es perfecto
+    public boolean telefonoEsNumeroPerfecto(String telefono) {
+        Cliente cliente = buscarClientePorTelefono(telefono);
+        if (cliente == null) {
+            return false; // no hay cliente registrado con ese teléfono
+        }
         try {
-            int telefono = Integer.parseInt(cliente.getTelefono());
-            return esNumeroPerfecto(telefono);
+            int numero = Integer.parseInt(telefono);
+            return esNumeroPerfecto(numero);
         } catch (NumberFormatException e) {
-            return false; // si el teléfono no es numérico
+            return false;
         }
     }
 
