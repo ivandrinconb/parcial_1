@@ -5,7 +5,10 @@ import co.edu.uniquindio.parcial.parcial.model.Empresa;
 import co.edu.uniquindio.parcial.parcial.model.Vehiculo;
 import co.edu.uniquindio.parcial.parcial.patrones.builder.Reserva;
 import co.edu.uniquindio.parcial.parcial.patrones.factoryMethod.IModalidad;
+import co.edu.uniquindio.parcial.parcial.patrones.factoryMethod.Modalidad;
 import co.edu.uniquindio.parcial.parcial.patrones.prototype.ServicioAdicional;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,14 +19,14 @@ public class SistemaController {
     private Empresa empresa;
     private List<Cliente> clientes;
     private List<Vehiculo> vehiculos;
-    private List<IModalidad> modalidades;
+    private ObservableList<Modalidad> modalidades;
     private List<ServicioAdicional> servicios;
     private List<Reserva> reservas;
 
     private SistemaController() {
         clientes = new ArrayList<>();
         vehiculos = new ArrayList<>();
-        modalidades = new ArrayList<>();
+        modalidades = FXCollections.observableArrayList();
         servicios = new ArrayList<>();
         reservas = new ArrayList<>();
 
@@ -33,6 +36,10 @@ public class SistemaController {
             instance = new SistemaController();
         }
         return instance;
+    }
+
+    public ObservableList<Modalidad> getModalidades() {
+        return modalidades;
     }
 
     public void setEmpresa(Empresa empresa) { this.empresa = empresa; }
@@ -48,7 +55,7 @@ public class SistemaController {
         vehiculos.add(vehiculo);
     }
 
-    public void registrarModalidad(IModalidad modalidad) {
+    public void registrarModalidad(Modalidad modalidad) {
         modalidades.add(modalidad);
     }
 

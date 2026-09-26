@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="co.edu.uniquindio.parcial.parcial.controller.DashboardController"
-            prefWidth="800" prefHeight="550">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="550" prefWidth="800" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.parcial.parcial.controller.DashboardController">
     <left>
-        <VBox spacing="10" prefWidth="150" style="-fx-background-color: #f0f0f0;">
-            <padding><Insets top="20" right="10" bottom="10" left="10"/></padding>
-            <Label text="RentCar" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-            <Button text="Clientes" onAction="#mostrarClientes" prefWidth="130"/>
-            <Button text="Vehículos" onAction="#mostrarVehiculos" prefWidth="130"/>
+        <VBox prefWidth="150" spacing="10" style="-fx-background-color: #f0f0f0;">
+            <padding><Insets bottom="10" left="10" right="10" top="20" /></padding>
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="RentCar" />
+            <Button onAction="#mostrarClientes" prefWidth="130" text="Clientes" />
+            <Button onAction="#mostrarVehiculos" prefWidth="130" text="Vehículos" />
+         <Button fx:id="btnModalidad" onAction="#OnActionModalidad" prefWidth="130" text="Modalidad" />
         </VBox>
     </left>
     <center>
         <StackPane fx:id="contentArea">
-            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <padding><Insets bottom="10" left="10" right="10" top="10" /></padding>
         </StackPane>
     </center>
 </BorderPane>

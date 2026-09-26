@@ -29,7 +29,26 @@ public abstract class Modalidad implements IModalidad {
     @Override
     public double getValorDiario() { return valorDiario; }
 
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
 
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
 
+    }
+    public void setDuracionMinimaDias(int duracionMinimaDias) {
+        this.duracionMinimaDias = duracionMinimaDias;
+    }
+    public void setValorDiario(double valorDiario) {
+        this.valorDiario = valorDiario;
+    }
+    public void setEstado(EstadoModalidad estado) {
+        this.estado = estado;
+
+    }
 
 }
