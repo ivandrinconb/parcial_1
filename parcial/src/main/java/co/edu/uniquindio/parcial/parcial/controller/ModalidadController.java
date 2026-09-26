@@ -114,7 +114,7 @@ public class ModalidadController {
             modalidad.setValorDiario(valorDiario);
             modalidad.setEstado(estado);
 
-
+            // Confirmación en consola
             System.out.println("Modalidad registrada: "
                     + modalidad.getCodigo() + " | "
                     + modalidad.getNombre() + " | "

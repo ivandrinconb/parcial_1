@@ -15,6 +15,14 @@ public class ServicioAdicional implements IPrototype<ServicioAdicional> {
         this.disponible = disponible;
     }
 
+    public ServicioAdicional(String nombre, double precio) {
+        this.codigo = nombre.toUpperCase();
+        this.nombre = nombre;
+        this.descripcion = "";
+        this.precio = precio;
+        this.disponible = true;
+    }
+
     @Override
     public ServicioAdicional clone() {
         return new ServicioAdicional(this.codigo, this.nombre, this.descripcion, this.precio, this.disponible);

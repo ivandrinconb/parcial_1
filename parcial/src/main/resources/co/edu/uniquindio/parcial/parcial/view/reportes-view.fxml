@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.parcial.parcial.controller.ReportesController"
+            prefWidth="600" prefHeight="400">
+
+    <top>
+        <Label text="Reportes del Sistema"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 10;"/>
+    </top>
+
+    <center>
+        <VBox spacing="15" alignment="TOP_CENTER">
+            <Label text="Selecciona el rango de fechas:"/>
+            <HBox spacing="10">
+                <DatePicker fx:id="dpInicio"/>
+                <DatePicker fx:id="dpFin"/>
+                <Button text="Generar Reporte" onAction="#generarReporte"/>
+            </HBox>
+
+            <Label fx:id="lblIngresos"/>
+            <Label fx:id="lblCantidadReservas"/>
+            <Label fx:id="lblCantidadClientes"/>
+            <Label fx:id="lblCantidadVehiculos"/>
+
+            <Separator/>
+
+
+            <Label text="Verificar número perfecto en teléfono:" style="-fx-font-size: 16px;"/>
+            <HBox spacing="10">
+                <TextField fx:id="txtTelefono" promptText="Teléfono del cliente"/>
+                <Button text="Verificar" onAction="#verificarTelefono"/>
+            </HBox>
+            <Label fx:id="lblResultado" style="-fx-font-size: 14px; -fx-text-fill: blue;"/>
+        </VBox>
+    </center>
+</BorderPane>

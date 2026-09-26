@@ -50,5 +50,9 @@ public abstract class Modalidad implements IModalidad {
         this.estado = estado;
 
     }
+    @Override
+    public String toString() {
+        return nombre;
+    }
 
 }

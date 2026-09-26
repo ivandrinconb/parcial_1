@@ -55,13 +55,6 @@ public class Vehiculo {
 
     @Override
     public String toString() {
-        return "Vehiculo{" +
-                "placa='" + placa + '\'' +
-                ", marca='" + marca + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", anio=" + anio +
-                ", tipo='" + tipo + '\'' +
-                ", tarifaDiaria=" + tarifaDiaria +
-                '}';
+        return marca + " " + modelo; // ejemplo: Toyota Corolla
     }
 }

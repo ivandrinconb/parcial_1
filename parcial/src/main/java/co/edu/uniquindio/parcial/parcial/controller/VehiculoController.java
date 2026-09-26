@@ -26,8 +26,6 @@ public class VehiculoController {
     @FXML private TableColumn<Vehiculo, String> colTipo;
     @FXML private TableColumn<Vehiculo, Double> colTarifa;
 
-    private final ObservableList<Vehiculo> listaVehiculos = FXCollections.observableArrayList();
-
     @FXML
     public void initialize() {
         colPlaca.setCellValueFactory(new PropertyValueFactory<>("placa"));
@@ -37,7 +35,9 @@ public class VehiculoController {
         colTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
         colTarifa.setCellValueFactory(new PropertyValueFactory<>("tarifaDiaria"));
 
-        tablaVehiculos.setItems(listaVehiculos);
+
+        tablaVehiculos.setItems(SistemaController.getInstance().getVehiculos());
+
         cbTipo.setItems(FXCollections.observableArrayList("Turismo", "SUV", "Camioneta", "Van"));
     }
 
@@ -53,18 +53,25 @@ public class VehiculoController {
 
             if (placa.isEmpty() || marca.isEmpty() || tipo == null) {
                 lblMensaje.setText("Completa todos los campos obligatorios.");
+                lblMensaje.setStyle("-fx-text-fill: red;");
                 return;
             }
 
             Vehiculo vehiculo = new Vehiculo(placa, marca, modelo, anio, tipo, tarifa);
+
+            // Confirmación en consola
+            System.out.println("Vehículo registrado: " + vehiculo.getPlaca() + " | " + vehiculo.getMarca());
+
+            // Registrar en el sistema (la tabla se actualiza automáticamente)
             SistemaController.getInstance().registrarVehiculo(vehiculo);
 
-            listaVehiculos.add(vehiculo);
             lblMensaje.setText("Vehículo registrado correctamente.");
+            lblMensaje.setStyle("-fx-text-fill: green;");
             limpiarCampos();
 
         } catch (NumberFormatException e) {
-            lblMensaje.setText("Año y tarifa deben ser números.");
+            lblMensaje.setText("Año y tarifa deben ser números válidos.");
+            lblMensaje.setStyle("-fx-text-fill: red;");
         }
     }
 

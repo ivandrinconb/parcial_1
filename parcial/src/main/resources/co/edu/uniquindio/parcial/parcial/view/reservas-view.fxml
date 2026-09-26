@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.parcial.parcial.controller.ReservaController"
+            prefWidth="800" prefHeight="550">
+
+    <top>
+        <Label text="Gestión de Reservas"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 10;"/>
+    </top>
+
+    <center>
+        <VBox spacing="15" alignment="TOP_CENTER">
+            <padding><Insets top="10" left="20" right="20" bottom="10"/></padding>
+
+
+            <TitledPane text="Nueva Reserva" expanded="true">
+                <content>
+                    <GridPane hgap="10" vgap="10">
+                        <padding><Insets top="10" left="10" right="10" bottom="10"/></padding>
+
+                        <Label text="Cliente:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="cbCliente" promptText="Seleccionar Cliente"
+                                  GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Vehículo:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="cbVehiculo" promptText="Seleccionar Vehículo"
+                                  GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Modalidad:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <ComboBox fx:id="cbModalidad" promptText="Seleccionar Modalidad"
+                                  GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Fecha Inicio:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <DatePicker fx:id="dpInicio" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                        <Label text="Fecha Fin:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <DatePicker fx:id="dpFin" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                        <Label text="Servicios Adicionales:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                        <VBox spacing="5" GridPane.rowIndex="1" GridPane.columnIndex="2" GridPane.rowSpan="3">
+                            <CheckBox fx:id="chkGPS" text="GPS"/>
+                            <CheckBox fx:id="chkSilla" text="Silla para niños"/>
+                            <CheckBox fx:id="chkSeguro" text="Seguro adicional"/>
+                            <CheckBox fx:id="chkConductor" text="Conductor adicional"/>
+                        </VBox>
+
+                        <Label text="Costo Total:" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
+                        <TextField fx:id="txtCostoTotal" editable="false"
+                                   GridPane.rowIndex="4" GridPane.columnIndex="3"/>
+
+                        <Button text="Registrar Reserva" onAction="#registrarReserva"
+                                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"
+                                GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                        <Label fx:id="lblMensaje" GridPane.rowIndex="5" GridPane.columnIndex="2"/>
+                    </GridPane>
+                </content>
+            </TitledPane>
+
+
+            <TitledPane text="Reservas Realizadas" expanded="true">
+                <content>
+                    <TableView fx:id="tablaReservas" prefHeight="250">
+                        <columns>
+                            <TableColumn fx:id="colCliente" text="Cliente" prefWidth="120"/>
+                            <TableColumn fx:id="colVehiculo" text="Vehículo" prefWidth="120"/>
+                            <TableColumn fx:id="colModalidad" text="Modalidad" prefWidth="100"/>
+                            <TableColumn fx:id="colInicio" text="Fecha Inicio" prefWidth="100"/>
+                            <TableColumn fx:id="colFin" text="Fecha Fin" prefWidth="100"/>
+                            <TableColumn fx:id="colServicios" text="Servicios" prefWidth="150"/>
+                            <TableColumn fx:id="colCosto" text="Costo Total" prefWidth="100"/>
+                        </columns>
+                    </TableView>
+                </content>
+            </TitledPane>
+        </VBox>
+    </center>
+</BorderPane>
