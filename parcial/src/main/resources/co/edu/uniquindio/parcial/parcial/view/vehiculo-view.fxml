@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.parcial.parcial.controller.VehiculoController"
+            prefWidth="700" prefHeight="500">
+    <top>
+        <Label text="Registro de Vehículos" style="-fx-font-size: 20px; -fx-font-weight: bold;">
+            <BorderPane.margin><Insets top="10" left="10" bottom="10"/></BorderPane.margin>
+        </Label>
+    </top>
+    <left>
+        <VBox spacing="10" prefWidth="250">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label text="Placa:"/>
+            <TextField fx:id="txtPlaca"/>
+            <Label text="Marca:"/>
+            <TextField fx:id="txtMarca"/>
+            <Label text="Modelo:"/>
+            <TextField fx:id="txtModelo"/>
+            <Label text="Año:"/>
+            <TextField fx:id="txtAnio"/>
+            <Label text="Tipo:"/>
+            <ComboBox fx:id="cbTipo" promptText="Selecciona un tipo" prefWidth="200"/>
+            <Label text="Tarifa diaria:"/>
+            <TextField fx:id="txtTarifa"/>
+            <Button text="Registrar" onAction="#registrarVehiculo" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+            <Label fx:id="lblMensaje" wrapText="true" style="-fx-text-fill: red;"/>
+        </VBox>
+    </left>
+    <center>
+        <TableView fx:id="tablaVehiculos">
+            <columns>
+                <TableColumn fx:id="colPlaca" text="Placa" prefWidth="80"/>
+                <TableColumn fx:id="colMarca" text="Marca" prefWidth="100"/>
+                <TableColumn fx:id="colModelo" text="Modelo" prefWidth="100"/>
+                <TableColumn fx:id="colAnio" text="Año" prefWidth="60"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="100"/>
+                <TableColumn fx:id="colTarifa" text="Tarifa" prefWidth="80"/>
+            </columns>
+            <BorderPane.margin><Insets top="10" right="10" bottom="10"/></BorderPane.margin>
+        </TableView>
+    </center>
+</BorderPane>

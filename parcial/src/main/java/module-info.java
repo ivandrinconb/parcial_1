@@ -4,5 +4,6 @@ module co.edu.uniquindio.parcial.parcial {
 
     opens co.edu.uniquindio.parcial.parcial to javafx.fxml;
     opens co.edu.uniquindio.parcial.parcial.controller to javafx.fxml;
+    opens co.edu.uniquindio.parcial.parcial.model to javafx.base;
     exports co.edu.uniquindio.parcial.parcial;
 }

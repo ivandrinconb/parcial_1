@@ -17,8 +17,8 @@ public class HelloApplication extends Application {
                 "6067400000", "contacto@rentcar.com", "www.rentcar.com");
         SistemaController.getInstance().setEmpresa(empresa);
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/cliente-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 700, 500);
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("view/dashboard-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 550);
         stage.setTitle("RentCar");
         stage.setScene(scene);
         stage.show();
